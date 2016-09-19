@@ -53,8 +53,6 @@ import timeit
 import re
 import fileinput
 
-from tempfile import mkstemp
-
 if sys.platform == "win32":
     import winreg
 
@@ -75,7 +73,7 @@ prefix = "acre"
 pbo_name_prefix = "acre_"
 signature_blacklist = []
 importantFiles = ["acre_logo_medium_ca.paa", "meta.cpp", "mod.cpp", "LICENSE", "README.md"]
-extrasFiles = ["examples", "vcredist", "Wav2B64.exe"]
+extrasFiles = ["examples", "Wav2B64.exe"]
 steamFiles = ["extras\\ACRE2Steam.dll"]
 versionFiles = ["README.md", "extensions\\src\\ACRE2Shared\\version.h"]
 extensions32 = ["ACRE2Arma\\acre", "ACRE2Arma\\arma2ts", "ACRE2\\ACRE2Steam", "ACRE2\\ACRE2TS", "Extras\\Wav2B64"]
@@ -675,12 +673,12 @@ def set_version_in_files():
                     # Extension version file
                     if "ACRE_VERSION_" in fileText:
                         print_green("Changing extension version => {} in {}".format(newVersion, filePath))
-                        with open(filePath, "w") as file:
+                        with open(filePath, "w", newline="\n") as file:
                             file.writelines([
                                 "#define ACRE_VERSION_MAJOR {}\n".format(newVersionArr[0]),
                                 "#define ACRE_VERSION_MINOR {}\n".format(newVersionArr[1]),
                                 "#define ACRE_VERSION_SUBMINOR {}\n".format(newVersionArr[2]),
-                                "#define ACRE_VERSION_BUILD {}".format(newVersionArr[3])
+                                "#define ACRE_VERSION_BUILD {}\n".format(newVersionArr[3])
                             ])
                         continue
 

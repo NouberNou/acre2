@@ -1,6 +1,6 @@
 #define DISABLE_COMPILE_CACHE
 
-#include "\idi\clients\acre\addons\game\script_common_macros.hpp"
+#include "\idi\acre\addons\game\script_common_macros.hpp"
 
 #ifndef PRELOAD_ADDONS
 #define PRELOAD_ADDONS class CfgAddons \
@@ -19,8 +19,8 @@
 ARMA2/VBS2 COMPAT SECTION
 **/
 
-#include "\idi\clients\acre\addons\game\script_lib.hpp"
-#include "\idi\clients\acre\addons\game\script_command_replace.hpp"
+#include "\idi\acre\addons\game\script_lib.hpp"
+#include "\idi\acre\addons\game\script_command_replace.hpp"
 
 
 /**
@@ -65,9 +65,6 @@ END ARMA2/VBS2 COMPAT SECTION
 #define INDEX_USE_BY         1
 
 #define ACTIVE_RADIO "acre_active_radio"
-
-#define OPEN_RADIO_PATH "\idi\clients\acre\addons\sys_radio\fnc_openRadio.sqf"
-#define LIST_RADIO_PATH "\idi\clients\acre\addons\sys_radio\fnc_listRadios.sqf"
 
 #define ACRE_INDEX_CONTROLLERDATA        2
 #define ACRE_INDEX_UIDATA                1
