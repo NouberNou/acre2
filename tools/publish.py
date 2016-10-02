@@ -134,7 +134,7 @@ def main(argv):
     try:
         parser = argparse.ArgumentParser(description="Arma Automatic Publishing Script")
         parser.add_argument('manifest', type=argparse.FileType('r'), help='manifest json file')
-        parser.add_argument('-r', '--release_target', type=str, help="the name of the release target in the manifest file.", default="publish")
+        parser.add_argument('-r', '--release_target', type=str, help="the name of the release target in the manifest file.", default="release")
 
         args = parser.parse_args()
 
@@ -143,11 +143,12 @@ def main(argv):
 
         manifest = json.load(manifest_file)
 
-        credentials_path = os.environ["CBA_PUBLISH_CREDENTIALS_PATH"]
+        
 
-        if(credentials_path == "")
+        if(not "CBA_PUBLISH_CREDENTIALS_PATH" in os.environ)
             raise Exception("CBA_PUBLISH_CREDENTIALS_PATH is not set in the environment")
 
+        credentials_path = os.environ["CBA_PUBLISH_CREDENTIALS_PATH"]
         
         
         for destination in manifest['publish'][release_target]['destinations']:
